@@ -1,24 +1,24 @@
-import { Container, ContainerProps } from './container'
+import Head, { HeadProps } from 'components/common/head'
+
+// import Footer from './footer'
 
 type Props = {
   children?: React.ReactNode
-  contain?: boolean | ContainerProps
+  headProps?: HeadProps
 
-  // TODO after implementing header, footer
-  // headerProps?: HeaderProps
-  // footerProps?: FooterProps
+  // TODO after implementing head, header, footer
+  // headerProps: HeaderProps
+  // footerProps: FooterProps
 }
 
-export const PageLayout = ({ children, contain }: Props) => {
+const PageLayout = ({ children, headProps }: Props) => {
   return (
     <>
-      {/* TODO Header */}
-      {/* <Header /> */}
-      <main>
-        {contain ? <Container {...contain}>{children}</Container> : children}
-      </main>
-      {/* TODO Footer */}
+      <Head {...headProps} />
+      {children}
       {/* <Footer /> */}
     </>
   )
 }
+
+export default PageLayout
